@@ -77,7 +77,7 @@
 			String: {from_binary(deputify(puta_text))} <br>
 		</p>
 
-		Source code available at GitHub
+		Source code available at <a href="https://github.com/Odilf/PCnv" target="_blank">GitHub</a> 
 
 		<br>
 		<br>
