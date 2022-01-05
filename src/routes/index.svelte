@@ -6,6 +6,8 @@
 	let normal_text = ''
 	let puta_text = ''
 
+	$: valid_puta = /^[PUTAputa ]*$/.test(puta_text)
+
 	let last_focused
 	
 	let show_explanation = false
@@ -40,6 +42,7 @@
 				bind:value={normal_text} 
 				placeholder="Normal text" 
 				on:keyup={() => puta_text = putify(to_binary(normal_text))}
+				on:change={() => puta_text = putify(to_binary(normal_text))}
 				on:focus={() => last_focused = 'Normal'}
 				rows=2
 			/>	
@@ -49,9 +52,11 @@
 		<div>
 			<textarea 
 				id='puta'
+				class={valid_puta ? '' : 'invalid'}
 				bind:value={puta_text} 
 				placeholder="Putified text" 
 				on:keyup={() => normal_text = from_binary(deputify(puta_text))}
+				on:change={() => normal_text = from_binary(deputify(puta_text))}
 				on:focus={() => last_focused = 'Puta'}
 			/>
 			<button on:click={() => copy(puta_text)}> Copy </button>
@@ -124,6 +129,8 @@
 
 		/* transition: all 0.5s ease; */
 		text-align: center;
+
+		transition: background-color 0.5s ease;
 	}
 
 	div {
@@ -163,5 +170,9 @@
 	.hidden {
 		transform: translateY(100%) rotate(2deg);
 		opacity: 0;
+	}
+
+	.invalid {
+		background-color: rgb(134, 0, 0);
 	}
 </style>
