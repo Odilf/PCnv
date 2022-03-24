@@ -27,6 +27,8 @@ export function putify(binary: string): string {
 
 	})
 	
+	puta_text = puta_text.replace(/^\s+|\s+$/g, '');
+	
 	return puta_text
 }
 
