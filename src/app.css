@@ -1,58 +1,20 @@
-@import "@fontsource/inter/400.css";
 @import "@fontsource/inter/variable.css";
 
-:root {
-	font-family: 'InterVariable';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-	--primary: hsl(216, 74%, 14%);
-	--secondary: hsl(217, 78%, 5%);
-	--tertiary: hsl(210, 70%, 28%);
-
-	--text: hsl(214, 100%, 95%);
-	color: var(--text);
+.clickable {
+@apply transition-transform 
+	hover:scale-105
+	active:rotate-2 active:scale-95 odd:active:-rotate-2
 }
 
-body {
-	background-color: var(--primary);
+a {
+	@apply underline;
 }
-
-input, button, textarea {
-	font-family: 'InterVariable';
-}
-
-textarea {
-	font-size: 1.5rem;
-	font-weight: 200;
-	color: var(--text)
-}
-
-h1 {
-	font-weight: 900;
-	font-size: 5em;
-}
-
-button {
-	border: none;
-	border-radius: 10px;
-	padding: 0.5rem;
-
-	transition: all 0.1s ease;
-}
-
-button:hover {
-	background-color: antiquewhite;
-	transform: scale(105%);
-}
-
-button:active {
-	transform: scale(112%) rotate(-20deg);
-}
-
-@media only screen and (max-width: 600px) {
-	h1 {
-		font-size: 2.5em;
-	}
-	h2 {
-		font-size: 1em;
-	}
+	
+html {
+	@apply bg-gradient-to-b from-cyan-300 to-blue-400
+	dark:from-cyan-600 dark:to-blue-700;
 }
